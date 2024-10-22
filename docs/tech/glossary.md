@@ -12,7 +12,7 @@ Address { #address }
 : In blockchain, an address is a synonym for wallet and [account](#account).
 
 Attestation { #attestation }
-: A data proof provided to the [State Connector](#state_connector) by a decentralized set of Attestation Providers that confirms the validity or otherwise of any request. [Read more...](state-connector.md)
+: A data proof provided to the [Data Connector](#data_connector) by a decentralized set of Attestation Providers that confirms the validity or otherwise of any request. [Read more...](data-connector.md)
 
 Autoclaiming { #autoclaiming }
 : Automatic claiming enables users to appoint an [executor](#executor) to claim rewards on their behalf. [Read more...](./automatic-claiming.md)
@@ -24,16 +24,16 @@ Block { #block }
 : For performance reasons, [blockchains](#blockchain) do not process transactions one by one. Instead, transactions are grouped together in blocks which are then validated by the [consensus](#consensus) algorithm.
 
 Block Explorer { #block_explorer }
-: A tool that enables its users to analyze transactions and interact with addresses on blockchains. [Read more...](../user/block-explorers/index.md)
+: A tool that enables its users to analyze transactions and interact with addresses on blockchains.
 
 Blockchain { #blockchain }
 : Digital [ledger](#ledger) storing data and transactions on a distributed network of computers to make it more robust. Cryptography protects against information tampering, and a [consensus](#consensus) algorithm ensures that the majority of the network agrees on the stored data even if some of its nodes act maliciously.
 
 Bootstrapping Node { #bootstrapping_node }
-: An observation node associated with a [validator node](#validator) and acting as its bastion: the bootstrapping node exposes a minimum RPC interface, so the validator does not have to. The nodeID and nodeIP returned by the bootstrapping node's RPC allow an external node to connect and peer with the core network of validators. The bootstrapping node also [gossips](https://en.wikipedia.org/wiki/Gossip_protocol) the core network's validators nodeIDs and nodeIPs to the external node to peer to. The main purpose of a bootstrapping node is to allow new nodes to connect to the network (hence the name "bootstrapping") while reducing its associated validator node attack surface. [Flare offers some public bootstrapping nodes](../dev/reference/network-config.md#flare-networks).
+: An observation node associated with a [validator node](#validator) and acting as its bastion: the bootstrapping node exposes a minimum RPC interface, so the validator does not have to. The nodeID and nodeIP returned by the bootstrapping node's RPC allow an external node to connect and peer with the core network of validators. The bootstrapping node also [gossips](https://en.wikipedia.org/wiki/Gossip_protocol) the core network's validators nodeIDs and nodeIPs to the external node to peer to. The main purpose of a bootstrapping node is to allow new nodes to connect to the network (hence the name "bootstrapping") while reducing its associated validator node attack surface.
 
 Bridge { #bridge }
-: A protocol that connects otherwise independent blockchains, enabling interoperability between them. Read more about Flare's bridging: [LayerCake](#layercake).
+: A protocol that connects otherwise independent blockchains, enabling interoperability between them.
 
 Byzantine Fault Tolerance { #byzantine_fault_tolerance }
 : Property of a distributed system that is capable of continuous operation even when some of its participants are unreliable. Participants acting against the interest of the whole system, by accident or on purpose, are said to have “gone Byzantine”.
@@ -93,7 +93,7 @@ FAssets { #fassets }
 : Allows tokens on blockchains that do not support smart contracts to be used [trustlessly](#trustless) with [smart contracts](#smart_contract) on the Flare blockchain. [Read more...](./fassets/index.md)
 
 Faucet { #faucet }
-: A [dapp](#dapp) that distributes test tokens to anyone that requests them. Used only on [test networks](#test_network), obviously. See the [Network Configuration](../dev/reference/network-config.md) page to learn about Flare's faucets.
+: A [dapp](#dapp) that distributes test tokens to anyone that requests them. Used only on [test networks](#test_network), obviously. See the [Network Configuration](https://dev.flare.network/network/overview) page to learn about Flare's faucets.
 
 FBA { #fba }
 : Federated Byzantine Agreement is a form of [Byzantine fault tolerance](#byzantine_fault_tolerance) where each node keeps its own list of trusted nodes. It does not require nodes to invest stake or computing power as [Proof of Stake](#proof_of_stake) or [Proof of Work](#proof_of_work) protocols do.
@@ -111,7 +111,7 @@ Front-running { #front_running }
 : When a network [validator](#validator) reorders transactions before adding them to a [block](#block) so that his own transactions appear before the rest, extracting value in the process. Compare with [sandwiching](#sandwiching).
 
 FTSO { #ftso }
-: The Flare Time Series Oracles provide external information to the Flare network in a decentralized manner, by using multiple independent data providers that are rewarded for providing accurate information. [Read more...](./ftso.md)
+: The Flare Time Series Oracles provide external information to the Flare network in a decentralized manner, by using multiple independent data providers that are rewarded for providing accurate information. [Read more...](./ftso/index.md)
 
 Governance { #governance }
 : Mechanism to propose, vote, and implement changes on a blockchain protocol. On Flare, anybody can propose updates and token holders vote to accept them. [Read more...](./governance.md)
@@ -127,9 +127,6 @@ Inflation { #inflation }
 
 Know Your Customer (KYC) { #kyc }
 : The process an entity completes to verify the identities of its users to comply with global requirements.
-
-LayerCake { #layercake }
-: Being developed by Flare Labs to provide a decentralized, [trustless](#trustless) [bridging](#bridge) system between [smart contract](#smart-contract) networks. For an overview of trustless bridges, see [LayerCake](https://flare.network/layercake/).
 
 Layer 1 { #layer1 }
 : An L1 is a blockchain in the classical sense, in that it comprises a network of nodes that exchange information to guarantee the integrity of a shared ledger and offer functionality like token exchange and programmability. Compare it to an L2, which is built on top of an existing L1.
@@ -150,10 +147,10 @@ Main Network (MAINNET) { #main_network }
 : The computer network that supports a [blockchain](#blockchain) in its production stage, i.e., the real thing (instead of a [Canary](#canary_network) or [Test](#test_network) network).
 
 Merkle Root { #merkle_root }
-: The single [hash](#hash) that encapsulates the entirety of the data represented in a [Merkle tree](#merkle_tree). For instance, it is used by the [State Connector](#state_connector) to store only the Merkle root and avoid having to store the whole tree.
+: The single [hash](#hash) that encapsulates the entirety of the data represented in a [Merkle tree](#merkle_tree). For instance, it is used by the [Flare Data Connector](#data_connector) to store only the Merkle root and avoid having to store the whole tree.
 
 Merkle Tree { #merkle_tree }
-: A cryptographic data structure that aggregates large sets of data into a single [hash](#hash), enabling fast verification of data integrity and membership. For example, in the [State Connector](#state_connector), Merkle trees play a crucial role in organizing and verifying [attestations](#attestation), which are hashed representations of data records like address validity proofs. For more information, check the [State Connector](./state-connector.md#attestation-packing) protocol. [Read more...](https://en.wikipedia.org/wiki/Merkle_tree)
+: A cryptographic data structure that aggregates large sets of data into a single [hash](#hash), enabling fast verification of data integrity and membership. For example, in the [Flare Data Connector](#data_connector), Merkle trees play a crucial role in organizing and verifying [attestations](#attestation), which are hashed representations of data records like address validity proofs. For more information, check the [Flare Data Connector](./data-connector.md#attestation-packing) protocol. [Read more...](https://en.wikipedia.org/wiki/Merkle_tree)
 
 Metaverse { #metaverse }
 : An old concept, at times called Virtual Reality or Cyberspace, that translates human interaction to virtual (i.e., non-physical) worlds. Currently in vogue again because blockchain technology promises to link the physical and the virtual worlds and thus bring a degree of reality to the latter.
@@ -171,10 +168,10 @@ NFT { #nft }
 : Non-Fungible Tokens are digital representations of assets which are unique and therefore non-mergeable (non-fungible), made impossible to copy by blockchain technology. Common use cases are certificates of authenticity or ownership, or limited edition collectibles. Most NFT tokens are built on the [Ethereum network](https://ethereum.org/en/) using standards [ERC-721](https://eips.ethereum.org/EIPS/eip-721) and [ERC-1155](https://eips.ethereum.org/EIPS/eip-1155).
 
 Oracle { #oracle }
-: A mechanism to provide external information to a blockchain, so that it can be used by [smart contracts](#smart_contract), for example. Flare oracles include the [FTSO](#ftso) and the [State Connector](#state-connector).
+: A mechanism to provide external information to a blockchain, so that it can be used by [smart contracts](#smart_contract), for example. Flare oracles include the [FTSO](#ftso) and the [Flare Data Connector](#data-connector).
 
 Price pair { #price_pair }
-: A token and its monetary unit, such as BTC USD. Price pairs are one of the types of data that Flare's FTSO can provide. Price pairs are one of the types of data that the [FTSO](#ftso) can provide.
+: A token and its monetary unit, such as BTC USD. Price pairs are one of the types of data that Flare's [FTSO](#ftso) can provide.
 
 Proof of Stake { #proof_of_stake }
 : A kind of [Sybil resistance](#sybil_resistance) based on staking assets to participate in consensus. The rationale is that a participant investing enough assets will not be interested in attacking the network that supports such assets. Moreover, if malicious behavior is detected part of the assets can be taken as punishment.
@@ -195,7 +192,8 @@ Quorum Slice { #quorum_slice }
 : In [FBA](#fba) consensus each node has multiple lists of other nodes which it voluntarily decides to trust, forming its quorum slices. All nodes in a quorum slice agreeing on a result are enough to convince the node of that result. If the quorum slices are correctly built, global quorum emerges from these local quorum slices.
 
 RPC { #rpc }
-: Remote Procedure Call is a protocol that allows a program executing on a computer to request a service from another program, typically running on a different computer. [Flare offers some public and private nodes with RPC capabilities](../apis/index.md#access-nodes).
+: Remote Procedure Call is a protocol that allows a program executing on a computer to request a service from another program, typically running on a different computer.
+Flare offers some public and private nodes with RPC capabilities.
 
 Real World Assets { #rwa }
 : Tokens that represent tangible or intangible assets, such as real estate or government bonds, respectively, as opposed to digital assets such as cryptocurrency.
@@ -209,8 +207,8 @@ Smart Contract { #smart_contract }
 Songbird { #songbird }
 : Flare's [canary network](#canary_network), launched in September 2021.
 
-State Connector { #state_connector }
-: Piece of the Flare network that keeps track of the state of other networks, facilitating the implementation of advanced mechanisms like the FAssets. The State Connector uses several independent Attestation Providers that are rewarded for providing correct information. [Read more...](state-connector.md)
+Flare Connector { #data_connector }
+: Piece of the Flare network that keeps track of the state of other networks, facilitating the implementation of advanced mechanisms like the FAssets. The Data Connector uses several independent Attestation Providers that are rewarded for providing correct information. [Read more...](data-connector.md)
 
 Stablecoin { #stablecoin }
 : A cryptocurrency whose value is pegged to the value of another currency.

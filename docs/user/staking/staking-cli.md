@@ -29,6 +29,7 @@ If you already know how staking on validators works on the Flare network, skip t
 
 Staking works by locking funds for a period of time to support a specific [network validator](../../tech/validators.md).
 When validator owners stake to their own nodes they _self-bond_, whereas all other participants are said to _delegate_ their stake to that validator.
+Note that delegating your stake to a validator is different from [FTSO delegation](../../tech/ftso/index.md/#delegation).
 
 Participants choose how much to stake and for how long their stake will be locked.
 The minimum values are:
@@ -39,7 +40,7 @@ The minimum values are:
 | Minimum amount   | 1M `$FLR` | 50K `$FLR` |
 | Minimum duration |   60 days |    14 days |
 
-At the end of every [reward epoch](../../tech/ftso.md#reward-epoch), participants are rewarded according to how well their chosen validator performed in that period.
+At the end of every [reward epoch](../../tech/ftso/index.md#reward-epoch), participants are rewarded according to how well their chosen validator performed in that period.
 
 !!! info "Staking limits"
 
@@ -287,7 +288,13 @@ To stake on a validator node, you need to:
 
     * The **node ID** of the validator you want to stake to.
 
-        If you created the validator, its `nodeID` was shown to you during the [deployment process](../../infra/observation/deploying.md).
+        If you created the validator, retrieve its node ID by running:
+
+        ```
+        curl --location 'http://localhost:9650/ext/info' \
+        --header 'Content-Type: application/json' \
+        --data '{ "jsonrpc":"2.0", "id":1, "method":"info.getNodeID" }'
+        ```
 
         If you want to stake to somebody else's validator, you can:
 
@@ -420,14 +427,14 @@ Press the down key a few times for this last option to show.
             secp256k1 public key: 0x●●●●●●●●●●●●●●●●
             ```
 
-        2. You need to interact with the `AddressBinder` smart contract, so you must retrieve its address from the `FlareContractRegistry` as explained in the [retrieving Contract Addresses page](../../dev/getting-started/contract-addresses.md).
-        3. Enter the address of the `AddressBinder` contract in the [Block Explorer](../block-explorers/index.md), and go to the **Write Contract** tab.
+        2. You need to interact with the `AddressBinder` smart contract, so you must retrieve its address from the `FlareContractRegistry`.
+        3. Enter the address of the `AddressBinder` contract in the block explorer, and go to the **Write Contract** tab.
         4. Click on **Connect Wallet**.
             You do not need to use the same account as the one you are binding.
         5. Locate the `registerPublicKey` method and paste the public key from step 1 into the `_publicKey` field.
         6. Click on **Write** and confirm the transaction from your wallet.
 
-        If the transaction is successful, your account's P and C-chain addresses are now bound.
+        If the transaction is successful, your account's P- and C-chain addresses are now bound.
 
 You then need to provide the following information:
 
@@ -551,7 +558,7 @@ If you encounter any problem, see the [Troubleshooting](#troubleshooting) sectio
 
 ## Reward Claiming Guide
 
-At the end of every [reward epoch](../../tech/ftso.md#reward-epoch), participants are rewarded according to how well their chosen validator performed in that period, but these rewards are not claimable yet.
+At the end of every [reward epoch](../../tech/ftso/index.md#reward-epoch), participants are rewarded according to how well their chosen validator performed in that period, but these rewards are not claimable yet.
 
 Every 4 reward epochs, rewards are accumulated in a dedicated smart contract and can then be claimed from the Flare Stake CLI tool:
 
@@ -588,8 +595,8 @@ Finished execution
 
     Rewards can also be claimed directly from the `ValidatorRewardManager` contract that accumulates them:
 
-    1. You need to interact with the `ValidatorRewardManager` smart contract, so you must retrieve its address from the `FlareContractRegistry` as explained in the [retrieving Contract Addresses page](../../dev/getting-started/contract-addresses.md).
-    2. Enter the address of the `ValidatorRewardManager` contract in the [Block Explorer](../block-explorers/index.md), and go to the **Write Contract** tab.
+    1. You need to interact with the `ValidatorRewardManager` smart contract, so you must retrieve its address from the `FlareContractRegistry`.
+    2. Enter the address of the `ValidatorRewardManager` contract in the block explorer, and go to the **Write Contract** tab.
     3. Click on **Connect Wallet**.
         You need to connect the account for which you are claiming.
     4. Locate the `claim` method and enter the following information:

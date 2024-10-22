@@ -1,5 +1,6 @@
 ---
 title: Collateral
+mathjax: true
 search:
   boost: 2
 ---
@@ -41,7 +42,7 @@ If governance deprecates a type, agents must switch to a supported type.
 Each vault is associated with a single, unique address on the underlying chain called the agent's underlying address.
 It receives underlying assets when they are minted into FAssets and sends underlying assets to the redeemer's address when they are redeemed.
 
-When an agent creates a vault, the underlying address is checked for validity using the State Connector.
+When an agent creates a vault, the underlying address is checked for validity using the Flare Data Connector.
 Otherwise, malicious agents could provide an address that systematically blocks payments and exploit the [minting process](./minting.md) to their advantage.
 
 ### Pool Collateral
@@ -307,7 +308,7 @@ Therefore, CPTs held by providers are divided into two types:
 
 The collateral ratio (CR) is the ratio between the value of all the tokens used as collateral and the total value of the underlying assets held by an agent at any given time.
 The agent's vault and the collateral pool each has its own unique collateral ratio, which is constantly changing as the value of the underlying assets and the collateral change.
-These values are obtained using the [FTSO system](../ftso.md).
+These values are obtained using the [FTSO system](../ftso/index.md).
 
 !!! example "Example: Vault and Pool CR"
 
@@ -331,11 +332,13 @@ The following thresholds are set by the FAssets system's governance and are the 
 
 * **Minimal CR**: The lowest collateral ratio the agent vault and the collateral pool must maintain so that enough collateral exists to insure the minted FAssets and to compensate for redemption payments that fail.
     The minimal CR can be different for each type of collateral.
+    { #minimal-cr }
 
     If an agent's CR remains below the minimal CR for longer than a governance-set amount of time, [liquidations](./liquidation.md) can start.
 
 * **Collateral call band CR (CCB CR)**: An agent's position is unhealthy when the agent's vault CR or pool CR fall below their minimal CR.
     However, as long as the CR remains above CCB CR, the CR can briefly fall below the minimal CR.
+    { #collateral-call-band-cr }
 
     During this time, the agent can either deposit more collateral or self-close some backed FAssets to improve the position.
 
@@ -354,6 +357,7 @@ The following thresholds are set by the FAssets system's governance and are the 
 * **Safety CR**: If one or both of the collateral types fall below CCB CR or below the minimum CR for a longer period of time, liquidation occurs.
     When the offending collateral reaches a healthy CR again, the liquidation stops.
     To prevent the agent from immediately reverting into liquidation after a small price change, the CR must reach the safety CR before it can start operating normally again and liquidation stops.
+    { #safety-cr }
 
     Each of the collateral types, the agent's vault and the collateral pool, has its own unique safety CR.
 
@@ -363,13 +367,16 @@ The following thresholds are set by each agent according to their own preference
 
 * **Minting CR**: For each mint done by an agent, the maximum amount allowed to be minted is calculated so that the CR for the agent's vault and the CR for the agent's collateral pool after the mint remain higher than the minting CR for each collateral type.
     To reduce the threat of liquidation, agents should set the minting CR well above the minimal CR to accommodate price fluctuations that might occur before the CR falls below the minimal CR after the mint and minting is no longer possible.
+    { #minting-cr }
 
 * **Exit CR**: After a user redeems CPTs, the pool CR must be more than the exit CR.
     If the pool CR is already below the exit CR, redemption cannot occur.
     The exit CR is for the collateral pool only.
+    { #exit-cr }
 
 * **Top-up CR**: To incentivize healthy collateral pools, if the pool CR falls below the top-up CR, anyone can add collateral to the pool and receive [CPTs](#pool-collateral) at a reduced price.
     [This top-up mechanism](#top-up) decreases the likelihood of liquidations because of a low amount of pool collateral.
+    { #top-up-cr }
 
 ## Redemption of CPTs
 
@@ -387,7 +394,7 @@ In this case, if providers have enough FAssets, they can exit by **self-closing*
 Providers are mainly compensated in underlying assets for the burned FAssets, depending on [the number of lots](./minting.md#lots) of FAssets that need to be redeemed:
 
 * If more than 1 lot needs to be redeemed, the value of the burned FAssets is redeemed through the standard [redemption process](./redemption.md).
-* If less than 1 lot needs to be redeemed, the agent buys the underlying funds from the user using vault collateral, at the price reported by the [FTSO system](../ftso.md) minus a percentage defined by the agent.
+* If less than 1 lot needs to be redeemed, the agent buys the underlying funds from the user using vault collateral, at the price reported by the [FTSO system](../ftso/index.md) minus a percentage defined by the agent.
     This purchase by the agent occurs because fees on underlying chains can be expensive, which makes redemption of small quantities too expensive for the agent.
 
     Providers can always request this option instead of receiving underlying tokens.

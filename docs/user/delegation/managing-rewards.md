@@ -1,8 +1,8 @@
 # Managing Rewards Using the Flare Portal
 
-[Rewards](../../tech/ftso.md#rewards) are accrued from your delegations to FTSO data providers whose submitted data is close to the calculated median value in a price epoch.
+[Rewards](../../tech/ftso/index.md#rewards) are accrued from your delegations to FTSO data providers whose submitted data is close to the calculated median value in a price epoch.
 
-Use this information to claim FTSO delegation rewards by using the Flare Portal. Alternatively, if you have used block explorers for other networks and are competent interacting with smart contracts without a user interface, you can [use the block explorer](../block-explorers/managing-rewards.md), which provides more options but can be more complex. Using it is intended for advanced users.
+Use this information to claim FTSO delegation rewards by using the Flare Portal. Alternatively, if you have used block explorers for other networks and are competent interacting with smart contracts without a user interface, you can use the block explorer, which provides more options but can be more complex. Using it is intended for advanced users.
 
 1. Open the [Flare Portal](https://portal.flare.network). The home page is displayed.
 
@@ -12,6 +12,11 @@ Use this information to claim FTSO delegation rewards by using the Flare Portal.
     </figure>
 
 2. Click **Connect to Wallet** and log into your wallet. The interface to your **Main Account** opens.
+
+--8<--
+    ./include/wallet-warning.md
+--8<--
+
 3. Ensure you are connected to the network you want. In the following image, the wallet is connected to the Flare network.
 
     <figure markdown>
@@ -48,4 +53,7 @@ Use this information to claim FTSO delegation rewards by using the Flare Portal.
 6. **Optional**: If you have enabled your [personal delegation account](../../tech/personal-delegation-account.md), the option to send your rewards to the PDA is preselected by default.
     To send your rewards to the address that you connected to the Portal instead, deselect the option.
 7. Click **Claim All Rewards** to claim all available rewards for the listed epochs.
-8. Follow the steps to confirm the transaction in your wallet. Your rewards are claimed, and your updated balance of native tokens is displayed.
+
+8. Follow the steps to confirm the transaction in your wallet.
+
+Your rewards are claimed, and your updated balance of native tokens is displayed.

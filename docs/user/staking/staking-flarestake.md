@@ -8,6 +8,7 @@ title: Using FlareStake
 
 Staking works by locking funds for a period of time to support a specific [network validator](../../tech/validators.md).
 When validator owners stake to their own nodes they _self-bond_, whereas all other participants are said to _delegate_ their stake to that validator.
+Note that delegating your stake to a validator is different from [FTSO delegation](../../tech/ftso/index.md/#delegation).
 
 !!! note
 
@@ -23,7 +24,7 @@ The minimum values are:
 | Minimum amount   | 1M `$FLR` | 50K `$FLR` |
 | Minimum duration |   60 days |    14 days |
 
-At the end of every [reward epoch](../../tech/ftso.md#reward-epoch), participants are rewarded according to how well their chosen validator performed in that period.
+At the end of every [reward epoch](../../tech/ftso/index.md#reward-epoch), participants are rewarded according to how well their chosen validator performed in that period.
 
 !!! info "Staking limits"
 
@@ -53,7 +54,7 @@ See the [Using the CLI to Stake](./staking-cli.md) guide to learn about it.
 2. Click **Access Wallet**.
 3. Click **Ledger**.
 
-    Make sure your Ledger device is plugged in, it is unlocked with your PIN, and the Avalanche app is running
+    Make sure your Ledger device is plugged in, it is unlocked with your PIN, and the Avalanche app is running.
 
     ??? info "Installing the Avalanche application"
 
@@ -77,7 +78,7 @@ See the [Using the CLI to Stake](./staking-cli.md) guide to learn about it.
 
     ??? info "Derivation Paths"
         A single hardware wallet can generate an unlimited number of addresses by using a _derivation path_.
-        By using the same derivation path, multiple wallets like MetaMask of Bifrost can retrieve the same addresses from a hardware wallet.
+        By using the same derivation path, multiple wallets like MetaMask or Bifrost can retrieve the same addresses from a hardware wallet.
 
         You need to tell FlareStake the derivation path that was used to obtain the address containing the funds you want to stake.
         Fortunately, there are only two common paths:
@@ -95,12 +96,6 @@ See the [Using the CLI to Stake](./staking-cli.md) guide to learn about it.
 You can now continue to the [Staking Guide](#staking-guide) or the [Reward Claiming Guide](#reward-claiming-guide).
 
 ## Staking Guide
-
-To stake on a validator node, you need to:
-
-1. Bind your C-chain and P-chain addresses.
-2. Move your funds from the C-chain to the P-chain.
-3. Stake them on a validator.
 
 ### 1. Binding Your Addresses
 
@@ -196,7 +191,7 @@ When the selected end time arrives, the funds will be automatically unlocked.
 
 ## Reward Claiming Guide
 
-At the end of every [reward epoch](../../tech/ftso.md#reward-epoch), participants are rewarded according to how well their chosen validator performed in that period, but these rewards are not claimable yet.
+At the end of every [reward epoch](../../tech/ftso/index.md#reward-epoch), participants are rewarded according to how well their chosen validator performed in that period, but these rewards are not claimable yet.
 
 Every 4 reward epochs, rewards are accumulated in a dedicated smart contract and can then be claimed from the FlareStake tool:
 

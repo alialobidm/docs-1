@@ -6,7 +6,7 @@ search:
 # Wrapping Flare Tokens
 
 This information explains how to wrap and unwrap native tokens on various Flare networks using the [Flare Portal](https://portal.flare.network) or the block explorer.
-Wrapped tokens are required to [delegate your vote power](../tech/ftso.md#delegation) to FTSO data providers and to [vote on decisions](../tech/governance.md) that affect how Flare networks operate.
+Wrapped tokens are required to [delegate your vote power](../tech/ftso/index.md#delegation) to FTSO data providers and to [vote on decisions](../tech/governance.md) that affect how Flare networks operate.
 
 When you complete the following steps for wrapping, your native tokens, such as `$FLR` and `$SGB`, are wrapped into `$WFLR` and `$WSGB`, respectively, so that you can participate in FTSO delegation and governance.
 When you need to convert your wrapped tokens into native tokens again, unwrap the wrapped tokens using similar steps, as described below.
@@ -23,6 +23,11 @@ When you need to convert your wrapped tokens into native tokens again, unwrap th
 
 2. Click **Connect to Wallet** and log into your wallet.
     The interface to your **Main Account** opens.
+
+--8<--
+    ./include/wallet-warning.md
+--8<--
+
 3. Ensure you are connected to the network you want.
     In the following image, the wallet is connected to the Flare network.
 
@@ -54,8 +59,8 @@ If your wrapped token balance is not displayed in your wallet, you must manually
 
 !!! example "This section is for advanced users."
 
-1. Open a [block explorer](./block-explorers/index.md).
-2. From the block explorer, follow the [Retrieval from Blockchain procedure](../dev/getting-started/contract-addresses.md#retrieval-from-blockchain) to find and open the `WNat` contract.
+1. Open a block explorer.
+2. From the block explorer, open the `WNat` contract.
 3. Click **Connect Wallet**, and complete the steps to connect your wallet, ensuring you are on the network on which you will wrap tokens.
 4. Click the **Write Contract** tab, and use the following methods to wrap and unwrap tokens:
 
@@ -122,5 +127,3 @@ If the automatic method did not work for you, most wallets can still be configur
 
 The exact instructions depend on your wallet, but they generally just require you to locate the aforementioned menu and provide the address of the `WNat` contract.
 The wallet can usually then retrieve the token name, symbol, and number of decimals directly from the contract.
-
-See the [Contract Addresses](../dev/getting-started/contract-addresses.md) page to find the address of the `WNat` contract.

@@ -3,10 +3,11 @@
 ## Workflow
 
 This repository uses a docs-as-code approach, meaning that the same workflow used to contribute source code is followed.
-This means that to contribute new text or modify existing pages, a git branch should be created and then a [GitHub Pull Request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) (PR) should be submitted.
+This means that to contribute new text or modify existing pages, a git branch should be created and then a GitLab Merge Request (MR) should be submitted.
 
-PRs must be peer-reviewed before getting merged into main.
-Once a PR is merged, its changes are automatically published via a GitHub Action.
+MRs must be peer-reviewed before getting merged into main.
+GitLab automatically generates previews for all MRs.
+Once an MR is merged, its changes are automatically published.
 
 ## Automatic Checking
 
@@ -49,7 +50,7 @@ Install [linkchecker-markdown](https://github.com/scivision/linkchecker-markdown
 pip install linkcheckmd
 ```
 
-And run `linkcheckmarkdown -r docs` before submitting PRs to verify you are not introducing broken links.
+And run `linkcheckmarkdown --recurse --sync docs` before submitting PRs to verify you are not introducing broken links.
 
 These are currently false positives which can be safely ignored:
 
@@ -124,6 +125,9 @@ These are currently false positives which can be safely ignored:
     * `[FtsoRegistry](FtsoRegistry.md)`
     * `[FBA](glossary.md#fba)`
 * All other links to internal pages should be relative to the current page, so always start them with `./` or `../`.
+* Links to admonitions (aka info boxes) do not work out of the box.
+    You need to drop a manual anchor with `{ #anchor_name }` on the line before the info box, and still separated by a blank line,
+    and then link to that anchor in the usual way `[link title](../target_page.md#anchor_name)`
 
 ### Official Spellings
 

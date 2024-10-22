@@ -40,7 +40,7 @@ To ensure having no effect on the amount of `$FLR` that each claiming address re
 
     1. **Wrap `$FLR` to receive it.**
     Rewards are proportional to the `$WFLR` balance, not `$FLR`, so always wrap as much `$FLR` as you can!
-    Wrapping has no downside: Wrapped tokens continue to be available for [delegation](./ftso.md#delegation) and [governance voting](./governance.md), for example, and they can be unwrapped at any time.
+    Wrapping has no downside: Wrapped tokens continue to be available for [delegation](./ftso/index.md#delegation) and [governance voting](./governance.md), for example, and they can be unwrapped at any time.
     2. **Claim before the distribution expires.**
     After the distribution becomes claimable, it expires in two bank months and a week (67 days).
 
@@ -50,7 +50,3 @@ You can also enable [automatic claiming](./automatic-claiming.md) to make sure y
 
 * [Claiming the FlareDrop](../user/claiming-the-flaredrop.md)
 * [Wrapping tokens](../user/wrapping-tokens.md)
-
-## Related Developer Docs
-
-* [The FlareDrop](../dev/reference/the-flaredrop.md)

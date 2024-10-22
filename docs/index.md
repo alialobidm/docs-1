@@ -28,58 +28,11 @@ Quick links:
 
 #### For developers
 
-<div class="flr-cards" markdown>
-
 <div class="flr-card has-background2" markdown>
-
-## Get Started Building
-
-Information to quickly start developing on the Flare networks
-
-<div class="flr-card-links is-vertical" markdown>
-
-Quick links:
-
-* [Retrieving Contract Addresses](./dev/getting-started/contract-addresses.md)
-* [Using Remix](./dev/getting-started/setup/remix.md)
-* [Using Hardhat](./dev/getting-started/setup/hardhat.md)
-
-</div>
-</div>
-
-<div class="flr-card has-background3" markdown>
 
 ## Developer Guides
 
-In-depth information about the Flare networks
-
-<div class="flr-card-links is-vertical" markdown>
-
-Quick links:
-
-* [State Connector Attestation Request](./dev/tutorials/sc/address-validity.md)
-* [Getting FTSO Data Feeds](./dev/tutorials/ftso/getting-data-feeds.md)
-* [Demo examples](https://github.com/flare-foundation/flare-demo-examples)
-
-</div>
-</div>
-
-<div class="flr-card has-background4 is-fullwidth" markdown>
-
-## API Reference
-
-in-depth information about the Flare smart contracts APIs
-
-<div class="flr-card-links" markdown>
-
-Quick links:
-
-* [Smart Contracts](./apis/smart-contracts/index.md)
-* [State Connector REST Endpoints](./apis/REST/index.md)
-* [Attestation types](./apis/attestation-types/index.md)
-
-</div>
-</div>
+All developer guides are now in the [Flare Dev Hub](https://dev.flare.network/).
 
 </div>
 
@@ -97,8 +50,8 @@ Descriptions of Flare’s products
 
 Quick links:
 
-* [FTSO](./tech/ftso.md)
-* [State Connector](./tech/state-connector.md)
+* [FTSO](https://dev.flare.network/ftso/overview)
+* [Flare Data Connector](./tech/data-connector.md)
 * [FAssets](./tech/fassets/index.md)
 
 </div>
@@ -117,27 +70,6 @@ Quick links:
 * [Governance](./user/governance/index.md)
 * [The FlareDrop](./user/claiming-the-flaredrop.md)
 * [Personal Delegation Accounts](./user/personal-delegation-account.md)
-
-</div>
-</div>
-
-</div>
-
-#### For infrastructure providers
-
-<div class="flr-card has-background7" markdown>
-
-## Infrastructure Guides
-
-Step-by-step guides on how to deploy the different components that make up the Flare ecosystem
-
-<div class="flr-card-links" markdown>
-
-Quick links:
-
-* [Deploying an Observer Node](./infra/observation/deploying.md)
-* [Deploying a Validator Node](./infra/validation/deploying.md)
-* [Observer Nodes](./infra/observation/index.md)
 
 </div>
 </div>
